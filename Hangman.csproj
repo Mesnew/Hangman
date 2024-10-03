@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\background.jpg" />
+      <None Remove="Assets\modern_backgroung.webp" />
+      <Resource Include="Assets\modern_backgroung.webp" />
+      <None Remove="Assets\background-hang.jpg" />
+      <Resource Include="Assets\background-hang.jpg" />
+      <None Remove="Assets\wall-background.jpg" />
+      <Resource Include="Assets\wall-background.jpg" />
+      <None Remove="Assets\button_wood_texture.webp" />
+      <Resource Include="Assets\button_wood_texture.webp" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ViewModel\" />
+    </ItemGroup>
+
+</Project>

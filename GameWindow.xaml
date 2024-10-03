@@ -1,0 +1,211 @@
+<Window x:Class="Hangman.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:global="clr-namespace:"
+        Title="Hangman" Height="600" Width="1100">
+    
+    <!-- Image de fond pour le jeu -->
+    <Window.Background>
+        <ImageBrush ImageSource="Assets/wall-background.jpg" Stretch="Fill"/>
+    </Window.Background>
+
+    <!-- Resources and styles for game -->
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <global:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <global:LetterColorConverter x:Key="LetterColorConverter"/>
+        <!-- ... Styles for buttons ... -->
+        <!-- Ajout du style pour les boutons des lettres -->
+        <Style x:Key="LetterButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="LightGray"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Width" Value="50"/>
+                <Setter Property="Height" Value="50"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Game layout copied from the original MainWindow.xaml -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Score and attempts -->
+        <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+            <TextBlock Text="Essais restants : " FontSize="20" Foreground="Black"/>
+            <TextBlock Text="{Binding AttemptsLeft}" FontSize="24" Margin="10,0,0,0" Foreground="Black"/>
+            <TextBlock Text="Score : " FontSize="20" Foreground="Black" Margin="10,10,0,0"/>
+            <TextBlock Text="{Binding Score}" FontSize="24" Margin="10,0,0,0" Foreground="Black"/>
+        </StackPanel>
+        
+         <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                 <!-- A to Z Buttons using the declared button style -->
+                 <Button Content="A" Command="{Binding GuessCommand}" CommandParameter="A"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[A], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[A], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="B" Command="{Binding GuessCommand}" CommandParameter="B"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[B], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[B], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="C" Command="{Binding GuessCommand}" CommandParameter="C"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[C], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[C], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="D" Command="{Binding GuessCommand}" CommandParameter="D"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[D], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[D], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="E" Command="{Binding GuessCommand}" CommandParameter="E"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[E], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[E], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="F" Command="{Binding GuessCommand}" CommandParameter="F"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[F], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[F], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="G" Command="{Binding GuessCommand}" CommandParameter="G"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[G], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[G], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="H" Command="{Binding GuessCommand}" CommandParameter="H"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[H], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[H], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="I" Command="{Binding GuessCommand}" CommandParameter="I"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[I], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[I], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="J" Command="{Binding GuessCommand}" CommandParameter="J"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[J], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[J], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="K" Command="{Binding GuessCommand}" CommandParameter="K"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[K], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[K], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="L" Command="{Binding GuessCommand}" CommandParameter="L"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[L], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[L], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="M" Command="{Binding GuessCommand}" CommandParameter="M"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[M], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[M], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="N" Command="{Binding GuessCommand}" CommandParameter="N"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[N], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[N], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="O" Command="{Binding GuessCommand}" CommandParameter="O"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[O], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[O], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="P" Command="{Binding GuessCommand}" CommandParameter="P"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[P], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[P], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="Q" Command="{Binding GuessCommand}" CommandParameter="Q"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[Q], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[Q], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="R" Command="{Binding GuessCommand}" CommandParameter="R"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[R], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[R], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="S" Command="{Binding GuessCommand}" CommandParameter="S"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[S], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[S], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="T" Command="{Binding GuessCommand}" CommandParameter="T"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[T], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[T], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="U" Command="{Binding GuessCommand}" CommandParameter="U"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[U], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[U], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="V" Command="{Binding GuessCommand}" CommandParameter="V"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[V], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[V], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="W" Command="{Binding GuessCommand}" CommandParameter="W"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[W], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[W], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="X" Command="{Binding GuessCommand}" CommandParameter="X"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[X], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[X], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="Y" Command="{Binding GuessCommand}" CommandParameter="Y"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[Y], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[Y], Converter={StaticResource LetterColorConverter}}" />
+
+                 <Button Content="Z" Command="{Binding GuessCommand}" CommandParameter="Z"
+                         Style="{StaticResource LetterButtonStyle}"
+                         IsEnabled="{Binding ClickedLetters[Z], Converter={StaticResource InverseBooleanConverter}}"
+                         Background="{Binding ClickedLetters[Z], Converter={StaticResource LetterColorConverter}}" />
+             </WrapPanel>
+        </StackPanel>
+
+        <!-- Zone pour l'image du pendu au centre -->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="Assets/pendu.png" Width="400" Height="400"/> <!-- Placeholder pour l'image du pendu -->
+        </StackPanel>
+
+        <!-- Affichage du mot à deviner en bas -->
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding DisplayWord}" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Black" Margin="10"/>
+
+        <!-- Message "Game Over" -->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="{Binding IsGameOver, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Text="Game Over" FontSize="30" Foreground="Red" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
+        <!-- Message "Bravo" qui disparaît après le clic sur "Prochain mot" -->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35"
+                    Visibility="{Binding ShowVictoryMessage, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Text="Bravo, vous pouvez passer au prochain mot" FontSize="30" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <!-- Affichage du message de notification temporaire -->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35">
+            <TextBlock Text="{Binding Message}" FontSize="20" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <!-- Boutons "Réessayer" et "Prochain mot" en bas à droite côte à côte -->
+        <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="5">
+            <Button Content="Réessayer" Command="{Binding NewGameCommand}" Width="100" Height="40" Margin="5" />
+            <Button Content="Prochain mot" Command="{Binding NextWordCommand}" Width="100" Height="40" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>

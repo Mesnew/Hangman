@@ -1,0 +1,15 @@
+﻿<Application x:Class="Hangman.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Hangman"
+             xmlns:global="clr-namespace:"
+             StartupUri="MainWindow.xaml">
+    
+    <Application.Resources>
+        <!-- Enregistrement des convertisseurs -->
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <global:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        <global:LetterColorConverter x:Key="LetterColorConverter" />
+        <local:EmptyTextToVisibilityConverter x:Key="EmptyTextToVisibilityConverter"/>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QbuWIazIvUCvp8CcRmNG7yNP/MFxyWb9gtnzdhc/+CR65sfsdHdW+KQM3JQYhObAwx7A8i5TupupT9CjRRZLBg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\l.giraud\\RiderProjects\\Hangman\\Hangman\\Hangman.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\l.giraud\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
